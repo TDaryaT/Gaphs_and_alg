@@ -74,7 +74,7 @@ public class Graph {
     }
 
     /**
-     * Данный метод выпалняет поиск минимального пути и пичатает минимальный путь (по вершинам)
+     * Данный метод выполняет поиск минимального пути и печатает минимальный путь (по вершинам)
      * с 1 й вершины до @param endVertex
      */
     public void printMinPath(int endVertex) {
@@ -86,7 +86,7 @@ public class Graph {
         int vertexCountInPath = 1;
         boolean forStop = false;
 
-        //записываем в массив minPath номера вершин через которве проходит мин путь
+        //записываем в массив minPath номера вершин через которые проходит мин путь
         while (endVertexNow > 0) {
             forStop = false;
             for (int i = 0; i < vertexCount; ++i) {

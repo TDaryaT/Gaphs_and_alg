@@ -25,7 +25,8 @@ public class Dijkstra {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите номер вершины, до которой хотите постороить мин путь (отсчет вершин начинается с 1): ");
+        System.out.print("Введите номер вершины, до которой хотите" +
+                " постороить мин путь (отсчет вершин начинается с 1): ");
         int endVertex = scanner.nextInt();
 
         graph1.printMinPath(endVertex);
@@ -45,7 +46,8 @@ public class Dijkstra {
         System.out.println("Массив минимальных расстояний вершин:");
         System.out.println(Arrays.toString(minDistance));
 
-        System.out.print("Введите номер вершины, до которой хотите постороить мин путь (отсчет вершин начинается с 1): ");
+        System.out.print("Введите номер вершины, до которой хотите" +
+                " постороить мин путь (отсчет вершин начинается с 1): ");
         endVertex = scanner.nextInt();
 
         graph2.printMinPath(endVertex);
@@ -65,7 +67,8 @@ public class Dijkstra {
         System.out.println("Массив минимальных расстояний вершин:");
         System.out.println(Arrays.toString(minDistance));
 
-        System.out.print("Введите номер вершины, до которой хотите постороить мин путь (отсчет вершин начинается с 1): ");
+        System.out.print("Введите номер вершины, до которой хотите" +
+                " постороить мин путь (отсчет вершин начинается с 1): ");
         endVertex = scanner.nextInt();
 
         graph3.printMinPath(endVertex);
@@ -83,7 +86,8 @@ public class Dijkstra {
         System.out.println("Массив минимальных расстояний вершин:");
         System.out.println(Arrays.toString(minDistance));
 
-        System.out.print("Введите номер вершины, до которой хотите постороить мин путь (отсчет вершин начинается с 1): ");
+        System.out.print("Введите номер вершины, до которой хотите" +
+                " постороить мин путь (отсчет с 1): ");
         endVertex = scanner.nextInt();
 
         graph4.printMinPath(endVertex);

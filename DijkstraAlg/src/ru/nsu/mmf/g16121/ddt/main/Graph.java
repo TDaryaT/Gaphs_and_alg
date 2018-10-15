@@ -1,29 +1,45 @@
 package ru.nsu.mmf.g16121.ddt.main;
 
+/**
+ * Класс Граф, основанный на матрице смежности, вершины отсчитываются начиная с нулевой.
+ */
 public class Graph {
     private double[][] paths;
-    private final int length;
+    private final int vertexCount;
+
     private static final double infinity = 10E5;
     private static final int infinityForInt = (int) infinity;
     private static final double eps = 1 / infinity;
 
+    /**
+     * Конструктор графа
+     *
+     * @param paths - матрица смежности
+     */
     public Graph(double[][] paths) {
-        length = paths.length;
-        this.paths = new double[length][length];
-        System.arraycopy(paths, 0, this.paths, 0, length);
+        vertexCount = paths.length;
+        this.paths = new double[vertexCount][vertexCount];
+        for (int i = 0; i < vertexCount; ++i) {
+            System.arraycopy(paths[i], 0, this.paths[i], 0, vertexCount);
+        }
     }
 
+    /**
+     * Поиск минимальных расстояний от 0 вершины до всех остальных с помощью алгорима Дейкстры.
+     *
+     * @return - возвращает матрицу минимальных расстояний до каждой из вершин
+     */
     public double[] getMinDistance() {
-        double[] minDistance = new double[length];
-        boolean[] visitedVertices = new boolean[length];
+        double[] minDistance = new double[vertexCount];
+        boolean[] visitedVertices = new boolean[vertexCount];
 
         //Изначальное объявление
-        for (int i = 0; i < length; ++i) {
+        for (int i = 0; i < vertexCount; ++i) {
             minDistance[i] = infinity;
             visitedVertices[i] = false;
         }
 
-        visitedVertices[0] = true;
+        minDistance[0] = 0;
         int minIndexNow;
         double minDistanceNow;
 
@@ -32,58 +48,68 @@ public class Graph {
             minIndexNow = infinityForInt;
             minDistanceNow = infinity;
 
-            for (int i = 0; i < length; ++i) {
-                if (visitedVertices[i] && Math.abs(minDistance[i] - infinity) < eps) {
+            for (int i = 0; i < vertexCount; ++i) {
+                if (!visitedVertices[i] && ((minDistance[i] - infinity) < -eps)) {
                     minDistanceNow = minDistance[i];
                     minIndexNow = i;
+                    break;
                 }
             }
 
             if (minIndexNow != infinityForInt) {
-                double support;
-                for (int i = 0; i < length; ++i) {
+                for (int i = 0; i < vertexCount; ++i) {
                     if (paths[minIndexNow][i] > eps) {
-                        support = minDistanceNow + paths[minIndexNow][i];
-                        if (support < minDistance[i]) {
+                        double support = minDistanceNow + paths[minIndexNow][i];
+                        if ((support - minDistance[i]) < -eps) {
                             minDistance[i] = support;
                         }
                     }
                 }
+                //отмечаем, что поситили  вершину
+                visitedVertices[minIndexNow] = true;
             }
-            //отмечаем, что поситили  вершину
-            visitedVertices[minIndexNow] = true;
         } while (minIndexNow < infinityForInt);
+
         return minDistance;
     }
 
-    public int[] getAndPrintMinPath(int endVertex) {
-        int[] minPath = new int[length];
-        minPath[0] = endVertex;
+    /**
+     * Данный метод выпалняет поиск минимального пути и пичатает минимальный путь (по вершинам)
+     * с 1 й вершины до @param endVertex
+     */
+    public void printMinPath(int endVertex) {
+        int[] minPath = new int[vertexCount];
+        minPath[0] = endVertex;//так как отсчет вершин ведется с 0
         double[] minDistance = this.getMinDistance();
-        double weight = minDistance[endVertex];
-        int endVertexNow = endVertex;
-        int j = 1;
+        double weight = minDistance[endVertex - 1];
+        int endVertexNow = endVertex - 1;
+        int vertexCountInPath = 1;
+        boolean forStop = false;
+
+        //записываем в массив minPath номера вершин через которве проходит мин путь
         while (endVertexNow > 0) {
-            for (int i = 0; i < length; ++i) {
-                if (Math.abs(this.paths[endVertexNow][i]) > eps) {
-                    double support = weight - this.paths[endVertexNow][i];
+            forStop = false;
+            for (int i = 0; i < vertexCount; ++i) {
+                if (Math.abs(paths[i][endVertexNow]) >= eps) {
+                    double support = weight - paths[i][endVertexNow];
                     if (Math.abs(support - minDistance[i]) < eps) {
+                        forStop = true;
                         weight = support;
                         endVertexNow = i;
-                        minPath[j] = i;
-                        ++j;
+                        minPath[vertexCountInPath] = i + 1;
+                        ++vertexCountInPath;
                     }
                 }
             }
+            if (!forStop){
+                System.out.println("пути нет");
+                return;
+            }
         }
 
-        for (int i = j - 1; i >= 0; --i){
-            System.out.print(minPath[i]+" ");
+        // выводим масив minPath на экран
+        for (int i = vertexCountInPath - 1; i >= 0; --i) {
+            System.out.print(minPath[i] + " ");
         }
-        return minPath;
     }
-
-
-
-
 }

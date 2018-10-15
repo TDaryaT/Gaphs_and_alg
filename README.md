@@ -8,6 +8,10 @@ MMF NSU.GA laboratory works, 3 semester.
 
 ## Алгоритм Дейкстры (поиск минимального пути)
 
+Отчет и прграмма находятся в модуле: DijkstraAlg
+
+Иллюстрации к тестам:
+
 Первый пример:
 
 ![ex1](https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/Dijkstra_Animation.gif)

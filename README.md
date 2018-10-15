@@ -18,9 +18,9 @@ MMF NSU.GA laboratory works, 3 semester.
 
 Третий пример:
 
-![[ex3](https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/image.PNG)
+![ex3](https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/image.PNG)
 
-Третий пример:
+Четвертый пример:
 
 граф с тремя вершинами без путей
 

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DijkstraAlg/DijkstraAlg.iml" filepath="$PROJECT_DIR$/DijkstraAlg/DijkstraAlg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FindBlocksOfGraph/FindBlocksOfGraph.iml" filepath="$PROJECT_DIR$/FindBlocksOfGraph/FindBlocksOfGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/Gaphs_and_alg.iml" filepath="$PROJECT_DIR$/Gaphs_and_alg.iml" />
     </modules>
   </component>

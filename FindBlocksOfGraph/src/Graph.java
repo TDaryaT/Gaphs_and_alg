@@ -11,7 +11,7 @@ class Graph {
     /**
      * time - ипользуется как глобальная переменная для отслеживания
      * нумирации прохождения вершин (какая попала 1й.2й ...).
-     * biconnectedComponentsCount - количество компонент связности графа.
+     * biconnectedComponentsCount - количество компонент двусвязности(блоков) графа.
      */
 
     int biconnectedComponentsCount = 0;
@@ -74,14 +74,14 @@ class Graph {
      * Рекурсивная функция, которая находит и печатает компоненты связности, использующие обход DFS
      *
      * @param u             - посещаемая вершина
-     * @param visitedVertex - массив для отслеживания посещенных вершин
+     * @param visitedVertex - массив для отслеживания посещенных вершин по времени
      * @param low           - самая первая вершина (вершина с минимальным временем обнаружения),
      *                      которая может быть достигнута из поддерева
      * @param st            - стек, поддерево в глубину.
      * @param parent        - "родители вершины"
      */
-    private void BCCUtil(int u, int visitedVertex[], int low[], LinkedList<Edge> st,
-                         int parent[]) {
+    private void DFSForBlocks(int u, int visitedVertex[], int low[], LinkedList<Edge> st,
+                              int parent[]) {
         //отмечаем, что поситили вершину и запомнили какой по счету пришла
         visitedVertex[u] = low[u] = ++time;
         //изначально детей у нее нет
@@ -101,7 +101,7 @@ class Graph {
                 // заносим в стек
                 st.add(new Edge(u, v));
                 // запускаем рекурсивно уже от v
-                BCCUtil(v, visitedVertex, low, st, parent);
+                DFSForBlocks(v, visitedVertex, low, st, parent);
 
 
                 //проверяем связанно ли поддерево из v с предками u (проверка определения точки сочлинения)
@@ -135,20 +135,20 @@ class Graph {
      * Функция для обхода DFS.
      */
     void findBlocks() {
-        int disc[] = new int[vertexCount];
+        int visitedVertex[] = new int[vertexCount];
         int low[] = new int[vertexCount];
         int parent[] = new int[vertexCount];
         LinkedList<Edge> st = new LinkedList<Edge>();
 
         // автозаполнение массивов -1-ми
-        Arrays.fill(disc, -1);
+        Arrays.fill(visitedVertex, -1);
         Arrays.fill(low, -1);
         Arrays.fill(parent, -1);
 
         for (int i = 0; i < vertexCount; i++) {
             //для каждой непосещенной вершины:
-            if (disc[i] == -1)
-                BCCUtil(i, disc, low, st, parent);
+            if (visitedVertex[i] == -1)
+                DFSForBlocks(i, visitedVertex, low, st, parent);
 
             boolean incBiconnectedComponent = false;
 

@@ -20,7 +20,7 @@ public class Main {
         });
         System.out.println("Пример 1:");
         graph1.findBlocks();
-        System.out.println("Количество Компонент связности = " + graph1.biconnectedComponentsCount);
+        System.out.println("Количество блоков = " + graph1.biconnectedComponentsCount);
 
         //Пример 2
         Graph graph2 = new Graph(7);
@@ -44,6 +44,6 @@ public class Main {
         graph2.addEdge(5, 2);
         graph2.addEdge(6, 5);
         graph2.findBlocks();
-        System.out.println("Количество компонент связности = " + graph2.biconnectedComponentsCount);
+        System.out.println("Количество блоков = " + graph2.biconnectedComponentsCount);
     }
 }

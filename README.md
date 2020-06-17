@@ -1,5 +1,5 @@
 # Gaphs_and_alg
-MMF NSU.GA laboratory works, 3 semester.
+MMF NSU.GA laboratory works, 3 course.
 
 ![Image](https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/1_TkOgqDF2jMReslONdaB2xg.jpeg)
 

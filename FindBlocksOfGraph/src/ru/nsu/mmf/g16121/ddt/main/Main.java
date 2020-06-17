@@ -1,6 +1,10 @@
+package ru.nsu.mmf.g16121.ddt.main;
+
+import ru.nsu.mmf.g16121.ddt.math.Graph;
+
 public class Main {
     /**
-     * Main - функция с примерами
+     * ru.nsu.mmf.g16121.ddt.main.Main - функция с примерами
      */
     public static void main(String[] args) {
         //Пример 1

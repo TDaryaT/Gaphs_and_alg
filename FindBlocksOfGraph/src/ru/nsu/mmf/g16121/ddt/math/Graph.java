@@ -1,10 +1,10 @@
-/*
+package ru.nsu.mmf.g16121.ddt.math;/*
  * Задание: Для зананного графа найти все его блкои и выдать их.
  */
 
 import java.util.*;
 
-class Graph {
+public class Graph {
     private int vertexCount; // - количество связей
     private LinkedList[] adj; // - лист связей
 
@@ -14,9 +14,26 @@ class Graph {
      * biconnectedComponentsCount - количество компонент двусвязности(блоков) графа.
      */
 
-    int biconnectedComponentsCount = 0;
+    public int biconnectedComponentsCount = 0;
     private int time = 0;
 
+    /**
+     * Конструктор графа по матрице смежности
+     *
+     * @param matrix - матрица смежности
+     */
+    public Graph(double[][] matrix) {
+        vertexCount = matrix.length;
+        adj = new LinkedList[matrix.length];
+        for (int i = 0; i < matrix.length; ++i) {
+            adj[i] = new LinkedList();
+            for (int j = 0; j < matrix.length; ++j) {
+                if (matrix[i][j] != 0) {
+                    adj[i].add(j);
+                }
+            }
+        }
+    }
     /**
      * Класс ребер, из которых будет состоять Граф
      */
@@ -35,7 +52,7 @@ class Graph {
      *
      * @param vertexCount - количество вершин в создоваемом графе
      */
-    Graph(int vertexCount) {
+    public Graph(int vertexCount) {
         this.vertexCount = vertexCount;
         adj = new LinkedList[vertexCount];
         for (int i = 0; i < vertexCount; ++i)
@@ -48,26 +65,8 @@ class Graph {
      * @param vertexInput  - вершина, из которой выходит ребро
      * @param vertexOutput - вершина, в которую входит ребро
      */
-    void addEdge(int vertexInput, int vertexOutput) {
+    public void addEdge(int vertexInput, int vertexOutput) {
         adj[vertexInput].add(vertexOutput);
-    }
-
-    /**
-     * Конструктор графа по матрице смежности
-     *
-     * @param matrix - матрица смежности
-     */
-    Graph(double[][] matrix) {
-        vertexCount = matrix.length;
-        adj = new LinkedList[matrix.length];
-        for (int i = 0; i < matrix.length; ++i) {
-            adj[i] = new LinkedList();
-            for (int j = 0; j < matrix.length; ++j) {
-                if (matrix[i][j] != 0) {
-                    adj[i].add(j);
-                }
-            }
-        }
     }
 
     /**
@@ -134,7 +133,7 @@ class Graph {
     /**
      * Функция для обхода DFS.
      */
-    void findBlocks() {
+    public void findBlocks() {
         int visitedVertex[] = new int[vertexCount];
         int low[] = new int[vertexCount];
         int parent[] = new int[vertexCount];

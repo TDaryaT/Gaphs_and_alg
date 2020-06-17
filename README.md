@@ -14,22 +14,14 @@ MMF NSU.GA laboratory works, 3 semester.
 
 Иллюстрации к тестам:
 
-* Первый пример:
-
 <img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/Dijkstra_Animation.gif" width="200">
-
-* Второй пример:
 
 <img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/69349df50d9ca60c1fff348e9b0b40ad.jpg" width="200">
 
-* Третий пример:
-
-![ex3](https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/image.PNG)
-
-* Четвертый пример:
+<img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/image.PNG" width="200">
 
 граф с тремя вершинами без путей
 
 На выходе программы получаем:
 
-![output](https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/screen.PNG)
+<img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/screen.PNG" width="200">

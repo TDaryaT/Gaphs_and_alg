@@ -16,11 +16,11 @@ MMF NSU.GA laboratory works, 3 semester.
 
 * Первый пример:
 
-!<img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/Dijkstra_Animation.gif" width="48">
+<img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/Dijkstra_Animation.gif" width="480">
 
 * Второй пример:
 
-!<img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/69349df50d9ca60c1fff348e9b0b40ad.jpg" width="48">
+<img src="https://github.com/TDaryaT/Gaphs_and_alg/blob/master/images/69349df50d9ca60c1fff348e9b0b40ad.jpg" width="480">
 
 * Третий пример:
 
